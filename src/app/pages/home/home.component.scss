@@ -1,0 +1,22 @@
+.ui-widget-content {
+  border: 0;
+}
+
+.modal-image {
+  background-image: url(/assets/images/3.png);
+}
+
+@media screen and (min-width: 499px) {
+  .ui-accordion-header:not([aria-selected='true'])::after {
+    content: '';
+    transform: rotate(-180deg);
+  }
+
+  .ui-accordion-header::after {
+    content: '';
+    width: 20px;
+    height: 20px;
+    background-image: url(/assets/images/arrow-up.png);
+    transition: transform 0.2s ease-in-out;
+  }
+}

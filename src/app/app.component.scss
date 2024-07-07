@@ -1,0 +1,28 @@
+
+
+@media screen and (min-width: 767px) {
+  .slick-arrow::before {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 40px;
+    border: solid 1px #076bff;
+    border-radius: 50%;
+  }
+
+  .slick-next {
+    right: 43px;
+    z-index: 1;
+  }
+
+  .slick-prev {
+    left: 25px;
+    z-index: 1;
+  }
+}
+
+@media screen and (max-width: 424px) {
+  .slick-slide p {
+    font-size: 1rem !important;
+  }
+}

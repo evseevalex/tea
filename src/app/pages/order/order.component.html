@@ -1,0 +1,142 @@
+<main>
+  <div class="container">
+      <section
+        class="d-flex flex-column align-items-center py-4 mb-4"  *ngIf="!isComplete">
+        <h2 id="order-h" class="fw-bold lh-1 mb-5">Сделать заказ</h2>
+        <form [formGroup]="orderForm" id="form" class="row gy-3 mt-2" (ngSubmit)="makeOrder()">
+          <div class="row col-12 col-md-6 offset-md-3">
+            <div class="col-12">
+              <label class="form-label" for="index">Товар</label>
+              <input
+                name="product"
+                formControlName="product"
+                type="text"
+                class="form-control"
+                id="product"
+              />
+            </div>
+            <div class="col-12 col-md-4">
+              <label for="name" class="form-label">Имя</label>
+              <input name="name" formControlName="name" type="text" class="form-control" id="name" />
+            </div>
+            <div class="col-12 col-md-4">
+              <label for="surname" class="form-label">Фамилия</label>
+              <input
+                name="surname"
+                formControlName="last_name"
+                type="text"
+                class="form-control"
+                id="surname"
+              />
+            </div>
+            <div class="col-12 col-md-4">
+              <label class="form-label" for="phone">Телефон</label>
+              <input
+                name="phone"
+                formControlName="phone"
+                type="tel"
+                class="form-control"
+                id="phone"
+              />
+            </div>
+            <div class="col-12 col-sm-6">
+              <label class="form-label" for="country">Страна</label>
+              <input
+                name="country"
+                formControlName="country"
+                type="text"
+                class="form-control"
+                id="country"
+              />
+            </div>
+            <div class="col-12 col-sm-6">
+              <label class="form-label" for="index">Индекс</label>
+              <input
+                name="index"
+                formControlName="zip"
+                type="text"
+                class="form-control"
+                id="index"
+              />
+            </div>
+            <div class="col-12">
+              <label class="form-label" for="address">Адрес</label>
+              <input
+                name="address"
+                formControlName="address"
+                type="text"
+                class="form-control"
+                id="address"
+              />
+            </div>
+            <div class="col-12">
+              <label class="form-label" for="index">Комментарий к заказу</label>
+              <input
+                name="comment"
+                formControlName="comment"
+                type="text"
+                class="form-control"
+                id="comment"
+              />
+            </div>
+            <div class="col-12 mt-4">
+              <button
+                id="submit"
+                type="submit"
+                class="btn btn-primary hvr-curl-bottom-left col-4"
+                [disabled]="!orderForm.valid"
+              >
+                Отправить
+              </button>
+              <div class="errors d-inline-block ms-3" *ngIf="!orderForm.valid || isError">
+                <div *ngIf="orderForm.get('name')?.invalid && (orderForm.get('name')?.touched || orderForm.get('name')?.dirty)">
+                  <div class="invalid-feedback" *ngIf="orderForm.get('name')?.errors?.['required']">
+                    Поле «Имя» обязательно для заполнения.
+                  </div>
+                  <div class="invalid-feedback " *ngIf="orderForm.get('name')?.errors?.['pattern']">
+                    Поле «Имя» должно начинаться с заглавной буквы и состоять из букв русского алфавита
+                  </div>
+                </div>
+                <div *ngIf="orderForm.get('last_name')?.invalid && (orderForm.get('last_name')?.touched || orderForm.get('last_name')?.dirty)">
+                  <div class="invalid-feedback" *ngIf="orderForm.get('last_name')?.errors?.['required']">
+                    Поле «Фамилия» обязательно для заполнения.
+                  </div>
+                  <div class="invalid-feedback" *ngIf="orderForm.get('last_name')?.errors?.['pattern']">
+                    Поле «Фамилия» должно начинаться с заглавной буквы и состоять из букв русского алфавита
+                  </div>
+                </div>
+                <div *ngIf="orderForm.get('phone')?.invalid && (orderForm.get('phone')?.touched || orderForm.get('phone')?.dirty)">
+                  <div class="invalid-feedback" *ngIf="orderForm.get('phone')?.errors?.['required']">
+                    Поле «Телефон» обязательно для заполнения.
+                  </div>
+                  <div class="invalid-feedback" *ngIf="orderForm.get('phone')?.errors?.['pattern']">
+                    Поле «Телефон» должно содержать 11 цифр
+                  </div>
+                </div>
+                <div *ngIf="orderForm.get('country')?.invalid && (orderForm.get('country')?.touched || orderForm.get('country')?.dirty)">
+                  <div class="invalid-feedback" *ngIf="orderForm.get('country')?.errors?.['required']">
+                    Поле «Страна» обязательно для заполнения.
+                  </div>
+                </div>
+                <div *ngIf="orderForm.get('zip')?.invalid && (orderForm.get('zip')?.touched || orderForm.get('zip')?.dirty)">
+                  <div class="invalid-feedback" *ngIf="orderForm.get('zip')?.errors?.['required']">
+                    Поле «Индекс» обязательно для заполнения.
+                  </div>
+                </div>
+                <div *ngIf="orderForm.get('address')?.invalid && (orderForm.get('address')?.touched || orderForm.get('address')?.dirty)">
+                  <div class="invalid-feedback" *ngIf="orderForm.get('address')?.errors?.['required']">
+                    Поле «Адрес» обязательно для заполнения.
+                  </div>
+                  <div class="invalid-feedback " *ngIf="orderForm.get('address')?.errors?.['pattern']">
+                    В поле «Адрес» можно вводить: буквы, цифры, пробелы, дефис и слеш
+                  </div>
+                </div>
+              </div>
+              <span class="ms-2 text-danger" *ngIf="isError">Произошла ошибка. Попробуйте еще раз.</span>
+            </div>
+          </div>
+        </form>
+      </section>
+      <h2 class="fw-bold lh-1 mb-5 text-success text-center"  *ngIf="isComplete">Спасибо за заказ</h2>
+  </div>
+</main>

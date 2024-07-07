@@ -1,0 +1,19 @@
+main {
+  height: calc(100vh - 150px);
+}
+
+input.ng-invalid.ng-dirty,
+input.ng-invalid.ng-touched
+{
+  border-color: red;
+}
+
+input.ng-valid.ng-dirty,
+input.ng-valid.ng-touched
+{
+  border-color: green;
+}
+
+.invalid-feedback {
+  display: block;
+}
