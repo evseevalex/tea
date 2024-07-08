@@ -1,15 +1,10 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {Product} from "../../types/product.type";
+import {Product} from "../../../../../types/product.type";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Subscription} from "rxjs";
-import {CurrencyPipe} from "@angular/common";
 
 @Component({
   selector: 'app-product',
-  standalone: true,
-  imports: [
-    CurrencyPipe
-  ],
   templateUrl: './product.component.html',
   styleUrl: './product.component.scss'
 })

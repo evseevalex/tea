@@ -1,17 +1,11 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
-import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Subscription} from "rxjs";
-import {ProductService} from "../../services/product.service";
-import {NgIf} from "@angular/common";
+import {ProductService} from "../../../core/services/product.service";
 
 @Component({
   selector: 'app-order',
-  standalone: true,
-  imports: [
-    ReactiveFormsModule,
-    NgIf
-  ],
   templateUrl: './order.component.html',
   styleUrl: './order.component.scss'
 })

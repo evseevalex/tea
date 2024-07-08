@@ -1,19 +1,10 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {ProductService} from "../../services/product.service";
-import {Product} from "../../types/product.type";
-import {NgForOf} from "@angular/common";
-import {TrimPipe} from "../../shared/pipes/trim.pipe";
-import {RouterLink} from "@angular/router";
+import {ProductService} from "../../../core/services/product.service";
+import {Product} from "../../../../types/product.type";
 import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-products',
-  standalone: true,
-  imports: [
-    NgForOf,
-    TrimPipe,
-    RouterLink
-  ],
   templateUrl: './products.component.html',
   styleUrl: './products.component.scss'
 })
